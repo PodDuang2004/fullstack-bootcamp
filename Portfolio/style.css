@@ -11,8 +11,8 @@ header{
 
 section{
     background:white;
-    padding:20px;
-    margin-top:20px;
+    padding:30px;
+    margin-top:30px;
     border-radius:10px;
     border: 1px solid #f10d0d;
 }
@@ -26,6 +26,21 @@ section{
     display: flex;
     flex-direction: column;
 }*/
+.about-content {
+    display: flex;
+    gap: 20px;
+}
+.about-info,.about-description {
+    flex: 1;
+}  
+@media(max-width: 768px){
+    .about-content {
+        flex-direction: column;
+    }
+    .projects-container {
+        flex-direction: column;
+    }
+} 
 
 .skill{
     display: flex;
@@ -43,15 +58,39 @@ section{
 .skill-card:hover{
     transform: translateY(-5px);
 }
+.skill-card{
+    padding: 20px;
+    min-width: 100px;
+    text-align: center;
+}
 
 @media(max-width: 768px){
     .skills{
         flex-direction: column;
     }
 }
-/* =========================
-   DAY 5 - NAVBAR
-========================= */
+
+.projects-container{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.project-card{
+    flex: 1 ;
+    min-width: 300px;
+    background: #f2f2f2;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+}
+
+.project-card:hover{
+    transform: translateY(-5px);
+}
+
 
 .navbar {
     display: flex;
@@ -84,9 +123,7 @@ section{
 }
 
 
-/* =========================
-   DAY 5 - HERO
-========================= */
+
 
 .hero {
     text-align: center;
@@ -102,9 +139,7 @@ section{
 }
 
 
-/* =========================
-   DAY 5 - BUTTON
-========================= */
+
 
 .hero-button {
     display: inline-block;
@@ -125,9 +160,7 @@ section{
 }
 
 
-/* =========================
-   DAY 5 - RESPONSIVE
-========================= */
+
 
 @media (max-width: 768px) {
 
