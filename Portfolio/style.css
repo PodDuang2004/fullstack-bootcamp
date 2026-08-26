@@ -1,7 +1,7 @@
 
 body{
     font-family: Arial, sans-serif;
-    background:#2acf1e;
+    background:#fefefe;
     margin:40px;
 }
 
@@ -14,7 +14,167 @@ section{
     padding:30px;
     margin-top:30px;
     border-radius:10px;
-    border: 1px solid #f10d0d;
+    border: 1px solid #f7f5f5;
+}
+.about-section {
+  padding: 60px 20px;
+  background-color: #f8fafc;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #334155;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-header .sub-title {
+  color: #88e9cd;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.section-header h2 {
+  font-size: 2rem;
+  color: #0f172a;
+  margin-top: 5px;
+}
+
+/* Grid Layout แบ่ง 2 ฝั่ง */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 25px;
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* การ์ดสไตล์โมเดิร์น */
+.about-card {
+  background: #ffffff;
+  padding: 28px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+}
+
+/* ฝั่ง Info ซ้าย */
+.info-card h3 {
+  font-size: 1.2rem;
+  color: #0f172a;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #10b981;
+  padding-bottom: 8px;
+  display: inline-block;
+}
+
+.info-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 25px 0;
+}
+
+.info-list li {
+  margin-bottom: 15px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.info-list .label {
+  display: block;
+  font-size: 0.85rem;
+  color: #64748b;
+  margin-bottom: 2px;
+}
+
+.info-list .value {
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.badge-status {
+  display: inline-block;
+  background-color: #d1fae5;
+  color: #065f46;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  margin-top: 4px;
+}
+
+.btn-about {
+  display: block;
+  text-align: center;
+  background-color: #059669;
+  color: #ffffff;
+  padding: 10px 15px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+
+.btn-about:hover {
+  background-color: #047857;
+}
+
+/* ฝั่งเนื้อหาขวา */
+.bio-text p {
+  line-height: 1.7;
+  font-size: 1rem;
+  color: #475569;
+  margin-bottom: 20px;
+}
+
+.skills-highlight h4, .goal-box h4 {
+  font-size: 1.05rem;
+  color: #0f172a;
+  margin-bottom: 12px;
+}
+
+/* Tech Tags / Badges */
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 25px;
+}
+
+.tag {
+  background-color: #f1f5f9;
+  color: #0f172a;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 1px solid #cbd5e1;
+}
+
+/* Goal Highlight Box */
+.goal-box {
+  background-color: #f0fdf4;
+  border-left: 4px solid #10b981;
+  padding: 15px 20px;
+  border-radius: 0 8px 8px 0;
+}
+
+.goal-box p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #166534;
+  margin: 0;
 }
 /* .skill-container {
     display: flex;
@@ -26,7 +186,7 @@ section{
     display: flex;
     flex-direction: column;
 }*/
-.about-content {
+/*.about-content {
     display: flex;
     gap: 20px;
 }
@@ -62,15 +222,105 @@ section{
     padding: 20px;
     min-width: 100px;
     text-align: center;
-}
+} */
 
 @media(max-width: 768px){
     .skills{
         flex-direction: column;
     }
 }
+.projects-section {
+  padding: 40px 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
-.projects-container{
+.section-title {
+  font-size: 1.8rem;
+  color: #0f172a;
+  margin-bottom: 28px;
+  border-left: 4px solid #10b981;
+  padding-left: 12px;
+}
+
+/* ใช้ CSS Grid เพื่อให้การ์ดแบ่ง 2 คอลัมน์เท่ากันสวยงาม */
+.projects-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+/* สไตล์ Card */
+.project-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+  border-color: #10b981;
+}
+
+/* หัวข้อและหมวดหมู่ */
+.project-category {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #059669;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+
+.project-title {
+  font-size: 1.15rem;
+  color: #1e293b;
+  line-height: 1.4;
+  margin: 0 0 10px 0;
+}
+
+.project-desc {
+  font-size: 0.95rem;
+  color: #64748b;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* Tags ของเทคโนโลยี */
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.tech-tag {
+  background-color: #f1f5f9;
+  color: #334155;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+  transition: background 0.2s ease;
+}
+
+.project-card:hover .tech-tag {
+  background-color: #ecfdf5;
+  border-color: #a7f3d0;
+  color: #065f46;
+}
+
+/*.projects-container{
     display: flex;
     justify-content: center;
     gap: 20px;
@@ -90,6 +340,12 @@ section{
 .project-card:hover{
     transform: translateY(-5px);
 }
+@media(max-width: 768px){
+    .projects-container{
+        flex-direction: column;
+    }
+}*/ 
+
 
 
 .navbar {
@@ -123,9 +379,90 @@ section{
 }
 
 
+/* การจัดส่วน Hero Section */
+.hero-section {
+    min-height: 40vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #10b981, #059669); /* โทนเขียวโมเดิร์น */
+    padding: 2rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #ffffff;
+}
 
+.hero-container {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    padding: 2.5rem 3rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+}
 
-.hero {
+.hero-title {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.hero-desc {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    min-height: 3.2rem; /* กันกล่องกระตุกเวลาข้อความเปลี่ยน */
+}
+
+/* กลุ่มปุ่ม */
+.btn-group {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+/* สไตล์ปุ่มแต่ละแบบ */
+.btn-primary {
+    background-color: #ffffff;
+    color: #059669;
+}
+.btn-primary:hover {
+    background-color: #f3f4f6;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: #064e3b;
+    color: #ffffff;
+}
+.btn-secondary:hover {
+    background-color: #022c22;
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: #ffffff;
+    border: 1.5px solid #ffffff;
+}
+.btn-outline:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+/*.hero {
     text-align: center;
     padding: 80px 20px;
 }
@@ -158,7 +495,20 @@ section{
 .hero-button:hover {
     transform: translateY(-3px);
 }
+button {
+    padding: 12px 24px;
+    border: 2px solid #2acf1e;
+    border-radius: 10px;
+    background: white;
+    color: #2acf1e;
+    cursor: pointer;
+    transition: 0.3s;
+}
 
+button:hover {
+    background: #2acf1e;
+    color: white;
+} */
 
 
 

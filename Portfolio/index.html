@@ -17,18 +17,114 @@
         <div class="Logo">Kritawat</div>
         <ul class="nav-links">
             <li><a href="#about">เกี่ยวกับฉัน</a></li>
-            <li><a href="#skills">สกิลที่มี</a></li>
+            <!-- <li><a href="#skills">สกิลที่มี</a></li> -->
             <li><a href="#projects">โปรเจคที่เคยทำ</a></li>
             <li><a href="#contact">ช่องทางการติดต่อ</a></li>
         </ul>
     </nav>
     <header>
         <!-- Hero Section -->
-        <h1>กฤตวัฏ พันธ์ทุมสาร</h1>
-        <h2>นักศึกษาสาขาวิทยาการคอมพิวเตอร์</h2>
-        <p>สนใจด้าน web development และ software engineering</p>
-    </header>
-    <section id="about">
+        <h1>ฝึกทำPortfolio</h1>
+        <section class="hero-section">
+    <div class="hero-container">
+        <h1 class="hero-title">สวัสดีครับ!</h1>
+        <p id="welcome-message" class="hero-desc">
+            ยินดีต้อนรับเข้าสู่ Portfolio ของผม
+        </p>
+
+        <div class="btn-group">
+            <a href="#projects" class="btn btn-primary">ดูโปรเจกต์ของฉัน</a>
+            <button id="message-button" class="btn btn-secondary" onclick="changeMessage()">
+                รู้จักผมมากขึ้น
+            </button>
+            <button class="btn btn-outline" onclick="greeting()">
+                ทักทาย
+            </button>
+        </div>
+    </div>
+</section>
+    </header>   
+    <!--เกี่ยวกับฉัน-->
+    <section id="about" class="about-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="sub-title">Get to know me</span>
+      <h2>เกี่ยวกับฉัน</h2>
+    </div>
+
+    <div class="about-grid">
+      <!-- การ์ดข้อมูลส่วนตัวและการศึกษา -->
+      <div class="about-card info-card">
+        <h3>ข้อมูลการศึกษา</h3>
+        <ul class="info-list">
+          <li>
+            <span class="label">มหาวิทยาลัย:</span>
+            <span class="value">เทคโนโลยีราชมงคลกรุงเทพ</span>
+          </li>
+          <li>
+            <span class="label">คณะ/สาขา:</span>
+            <span class="value">วิทยาศาสตร์และเทคโนโลยี (วิทยาการคอมพิวเตอร์)</span>
+          </li>
+          <li>
+            <span class="label">สถานะ:</span>
+            <span class="value badge-status">กำลังศึกษา / พร้อมเริ่มฝึกงาน</span>
+          </li>
+        </ul>
+
+        <div class="cv-download">
+          <a href="#contact" class="btn-about">ติดต่อ / สอบถามเพิ่มเติม</a>
+        </div>
+      </div>
+
+      <!-- การ์ดเนื้อหาแนะนำตัว + Tech Stack + เป้าหมาย -->
+      <div class="about-card desc-card">
+        <div class="bio-text">
+          <p>
+            ผมเป็นนักศึกษาวิทยาการคอมพิวเตอร์ที่มีความสนใจจริงจังด้าน <strong>Web Development</strong> และ <strong>Data Analysis</strong> ชอบสร้างระบบที่ตอบโจทย์การใช้งานจริง ควบคู่ไปกับการนำข้อมูลมาวิเคราะห์เพื่อหา Insight ที่เป็นประโยชน์ พร้อมเรียนรู้สิ่งใหม่และลงมือปฏิบัติจริง
+          </p>
+        </div>
+
+        <!-- กล่อง Tech Stack แยกให้เห็นชัดเจน -->
+        <div class="skills-highlight">
+          <h4>Technical Skills & Tools</h4>
+          <div class="tech-tags">
+            <span class="tag">HTML5 / CSS3</span>
+            <span class="tag">JavaScript (ES6+)</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">Express</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">Git / GitHub</span>
+            <span class="tag">Data Analysis</span>
+          </div>
+        </div>
+
+        <!-- กล่องเป้าหมายการฝึกงาน (Career Goal) -->
+        <div class="goal-box">
+          <h4>🎯 เป้าหมายในการฝึกงาน</h4>
+          <p>
+            มุ่งมั่นที่จะพัฒนาทักษะเชิงลึกด้าน Full-stack Web Development และ Data Analysis ผ่านการร่วมงานกับทีมมืออาชีพ พร้อมเรียนรู้กระบวนการทำงานแบบมืออาชีพเพื่อสร้างคุณค่าให้กับทีมและเติบโตในสายงานเทคโนโลยี
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> 
+    <!-- <p>สนใจด้าน web development และ Data analysis</p> -->
+    <!--<a href="#projects" class="hero-button">ดูโปรเจคต์ของฉัน</a>
+        <button onclick="greeting()"
+            ทักทาย</button>   
+           <p id="welcome-message">
+        <button onclick="showMessage()"
+           ทักทาย </button>   
+           <p id="welcome-message">
+    ยินดีต้อนรับเข้าสู่ Portfolio
+</p>
+
+<button id="message-button" onclick="changeMessage()">
+   รู้จักผมมากขึ้น
+</button>-->
+    
+    <!--<section id="about">
         <h2>เกี่ยวกับฉัน</h2>
         <div class="about-content">
             <div class = "about-info">
@@ -38,15 +134,14 @@
         <p>อายุ: 22 ปี</p>
     </div>
      <div class="about-description"
-        <p>ผมเป็นนักศึกษาสาขาวิทยาการคอมพิวเตอร์
-           ที่มีความชื่นชอบในด้านการพัฒนาเว็บและวิศวกรรมซอฟต์แวร์</p> 
-        <p>ผมต้องการเรียนรู้จากการลงมือทำงานจริง
-           และพัฒนาทักษะเพื่อเตรียมพร้อมสำหรับการทำงาน</p>
+        <p>ผมเป็นนักศึกษาวิทยาการคอมพิวเตอร์ที่สนใจด้าน Web Development และ Data Analysis มีพื้นฐานการพัฒนาเว็บไซต์ด้วย HTML, CSS, JavaScript, Node.js และ Express รวมถึงการจัดการฐานข้อมูลด้วย PostgreSQL และการใช้งาน Git/GitHub</p> 
+        <p>ผมสนใจการนำเทคโนโลยีมาพัฒนาระบบที่สามารถใช้งานได้จริง และการนำข้อมูลมาวิเคราะห์เพื่อหาแนวโน้มและข้อมูลเชิงลึกที่เป็นประโยชน์ ผมเป็นคนที่ชอบเรียนรู้สิ่งใหม่ ๆ มีความพยายามในการแก้ไขปัญหา และพร้อมพัฒนาทักษะของตนเองผ่านการทำโปรเจกต์และการทำงานจริง</p>
+        <p>เป้าหมายในการฝึกงาน: ต้องการพัฒนาประสบการณ์ด้าน Web Development และ Data Analysis พร้อมเรียนรู้การทำงานจริงจากทีมมืออาชีพ และนำความรู้ที่ได้ไปต่อยอดในการทำงานด้านเทคโนโลยีในอนาคต</p>
      </div>
     </div>
     </section>
 
-    <!--<section>
+    <section>
         <h2>สกิลที่มี</h2>
         <ul>
             <li>HTML</li>
@@ -57,7 +152,7 @@
             <li>GitHub</li>
             <li>PostgreSQL</li>
         </ul>
-    </section> -->
+    </section> 
     <section>
         <h2>สกิลที่มี</h2>
         <div class="skills">
@@ -69,9 +164,51 @@
             <div class="skill-card">GitHub</div>
             <div class="skill-card">PostgreSQL</div>
         </div>
-    </section>
+    </section> -->
+    <!--Projects-->
+<section id="projects" class="projects-section">
+  <h2 class="section-title">โปรเจกต์ที่กำลังพัฒนาและผลงาน</h2>
+  
+  <div class="projects-container">
+    <!-- Project 1 -->
+    <div class="project-card">
+      <div class="project-header">
+        <span class="project-category">AI / Data Project</span>
+        <h3 class="project-title">ระบบแชทบอทให้คำปรึกษาด้านการวางแผนภาษีเงินได้บุคคลธรรมดา</h3>
+      </div>
+      <p class="project-desc">
+        ผู้ช่วยวิเคราะห์และวางแผนการลดหย่อนภาษี พร้อมช่วยให้ผู้ใช้งานสามารถกรอกเอกสารภาษีได้อย่างถูกต้องและรวดเร็ว โดยใช้เทคโนโลยี LLM, Knowledge Graph และ OpenCV & OCR
+      </p>
+      <div class="tech-stack">
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">LLM</span>
+        <span class="tech-tag">Knowledge Graph</span>
+        <span class="tech-tag">OpenCV & OCR</span>
+        <span class="tech-tag">LINE Messaging API</span>
+        <span class="tech-tag">REST API</span>
+      </div>
+    </div>
 
-<section id="projects">
+    <!-- Project 2 -->
+    <div class="project-card">
+      <div class="project-header">
+        <span class="project-category">Web Development</span>
+        <h3 class="project-title">เว็บไซต์ Portfolio สำหรับแนะนำตัวและแสดงผลงาน</h3>
+      </div>
+      <p class="project-desc">
+        ออกแบบและพัฒนาเว็บพอร์ตโฟลิโอส่วนตัวแบบ Responsive เพื่อนำเสนอทักษะและโปรเจกต์
+      </p>
+      <div class="tech-stack">
+        <span class="tech-tag">HTML5</span>
+        <span class="tech-tag">CSS3</span>
+        <span class="tech-tag">JavaScript</span>
+        <span class="tech-tag">React</span>
+        <span class="tech-tag">Git / GitHub</span>
+      </div>
+    </div>
+  </div>
+</section>
+<!--<section id="projects">
         <h2>โปรเจคต์ที่กำลังอยู่ในสถานศึกษา</h2>
         <div class="project-container">
             <div class="project-card">
@@ -87,7 +224,7 @@
                 HTML, CSS, JavaScript, git, github, React</p>
             </div>
         </div>
-    </section>
+    </section> -->
 
 
 
@@ -99,7 +236,7 @@
         <p>GitHub: <a href="https://github.com/PodDuang2004" target="_blank">Kritawat</a></p>
     </footer>      
      
-    
+    <script src="script.js"></script>
         
 </body>
 </html>
