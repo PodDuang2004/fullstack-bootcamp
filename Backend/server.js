@@ -1,32 +1,21 @@
 import express from "express";
 import cors from "cors";
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
 import pool from "./db.js";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Middleware
 app.use(cors());
 app.use(express.json());
 
-// ตั้งค่าตัวส่งอีเมล (Gmail Transporter - ระบุ Port 465 SSL)
-const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
-  port: 465,
-  secure: true,
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
-  },
-});
+// สร้าง Resend Client ด้วย API Key จาก Environment
+const resend = new Resend(process.env.RESEND_API_KEY);
 
-// หน้าแรก
 app.get("/", (req, res) => {
   res.send("Backend is running!");
 });
 
-// API ดึงข้อมูลผู้ใช้
 app.get("/api/users", async (req, res) => {
   try {
     const result = await pool.query("SELECT * FROM users");
@@ -37,10 +26,8 @@ app.get("/api/users", async (req, res) => {
   }
 });
 
-// API บันทึกข้อความลงตาราง messages พร้อมส่งอีเมลแจ้งเตือน
 app.post("/api/contact", async (req, res) => {
-  console.log("-> [Backend] ได้รับข้อมูลจากหน้าเว็บ:", req.body);
-
+  console.log("-> [Backend] ได้รับข้อมูล:", req.body);
   const { name, email, message } = req.body;
 
   if (!name || !email || !message) {
@@ -48,7 +35,7 @@ app.post("/api/contact", async (req, res) => {
   }
 
   try {
-    // บันทึกลงตาราง Neon Database
+    // 1. บันทึกลงตาราง Neon Database
     const query = `
       INSERT INTO messages (name, email, message) 
       VALUES ($1, $2, $3) 
@@ -57,39 +44,40 @@ app.post("/api/contact", async (req, res) => {
     const result = await pool.query(query, [name, email, message]);
     console.log("-> [Neon] บันทึกสำเร็จ:", result.rows[0]);
 
-    // ส่งข้อความเข้า Email 
-    const mailOptions = {
-      from: `"${name}" <${process.env.EMAIL_USER}>`,
-      to: process.env.EMAIL_USER,
-      replyTo: email,
-      subject: `[Portfolio Contact] ข้อความใหม่จาก ${name}`,
-      text: `ได้รับข้อความใหม่จากหน้าเว็บ Portfolio:\n\nชื่อ: ${name}\nอีเมล: ${email}\nข้อความ: ${message}`,
-      html: `
-        <h3>มีข้อความใหม่จากหน้าเว็บ Portfolio</h3>
-        <p><strong>ชื่อผู้ติดต่อ:</strong> ${name}</p>
-        <p><strong>อีเมล:</strong> ${email}</p>
-        <p><strong>ข้อความ:</strong></p>
-        <p style="background-color: #f4f4f4; padding: 10px; border-radius: 5px;">${message}</p>
-      `,
-    };
-
-    await transporter.sendMail(mailOptions);
-    console.log("-> [Email] ส่งอีเมลแจ้งเตือนสำเร็จ");
+    // 2. ส่งอีเมลแจ้งเตือนผ่าน Resend (HTTP API ไม่โดนบล็อกแน่นอน)
+    try {
+      await resend.emails.send({
+        from: "Portfolio Contact <onboarding@resend.dev>",
+        to: process.env.MY_EMAIL,
+        reply_to: email,
+        subject: `[Portfolio Contact] ข้อความใหม่จาก ${name}`,
+        html: `
+          <h3>มีข้อความใหม่จาก Portfolio</h3>
+          <p><strong>ชื่อผู้ติดต่อ:</strong> ${name}</p>
+          <p><strong>อีเมล:</strong> ${email}</p>
+          <p><strong>ข้อความ:</strong></p>
+          <p style="background-color: #f4f4f4; padding: 12px; border-radius: 6px;">${message}</p>
+        `,
+      });
+      console.log("-> [Resend] ส่งอีเมลสำเร็จ!");
+    } catch (emailErr) {
+      console.error("-> [Resend Error]:", emailErr.message);
+    }
 
     res.status(200).json({
       success: true,
-      message: "ส่งข้อความและบันทึกข้อมูลเรียบร้อยแล้ว!",
+      message: "ส่งข้อความเรียบร้อยแล้ว!",
       data: result.rows[0],
     });
+
   } catch (error) {
-    console.error("-> [Error]:", error);
+    console.error("-> [Server Error]:", error);
     res.status(500).json({
       error: "เกิดข้อผิดพลาดในการประมวลผล: " + error.message,
     });
   }
 });
 
-// รัน Server
 app.listen(PORT, () => {
   console.log(`Server running at port ${PORT}`);
 });
