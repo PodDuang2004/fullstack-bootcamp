@@ -37,7 +37,7 @@ function greeting() {
   }
 }
 
-// 3. ระบบส่งฟอร์มติดต่อ (Contact Form -> Backend)
+//ระบบส่งฟอร์มติดต่อ (Contact Form -> Backend)
 const contactForm = document.getElementById("contact-form");
 
 if (contactForm) {
@@ -76,6 +76,14 @@ if (contactForm) {
     }
   });
 }
+
+const response = await fetch("https://fullstack-bootcamp-soyd.onrender.com/api/contact", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({ name, email, message }),
+});
 /*console.log("Hello Javascript");
 let name = "Kritawat ";
 console.log(name); #เปลียนค่าได้
