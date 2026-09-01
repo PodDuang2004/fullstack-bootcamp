@@ -4,14 +4,13 @@ import nodemailer from "nodemailer";
 import pool from "./db.js";
 
 const app = express();
-// ใช้ PORT จาก Render หรือ 3000 หากรันในเครื่อง
 const PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(cors());
 app.use(express.json());
 
-// ตั้งค่าตัวส่งอีเมล (Gmail Transporter)
+// ตั้งค่าตัวส่งอีเมล (Gmail Transporter - ระบุ Port 465 SSL)
 const transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
   port: 465,
@@ -61,8 +60,8 @@ app.post("/api/contact", async (req, res) => {
     // ส่งข้อความเข้า Email 
     const mailOptions = {
       from: `"${name}" <${process.env.EMAIL_USER}>`,
-      to: process.env.EMAIL_USER, // ส่งเข้าเมลตัวเอง
-      replyTo: email,             // ให้สามารถกด Reply กลับหาผู้ส่งได้ทันที
+      to: process.env.EMAIL_USER,
+      replyTo: email,
       subject: `[Portfolio Contact] ข้อความใหม่จาก ${name}`,
       text: `ได้รับข้อความใหม่จากหน้าเว็บ Portfolio:\n\nชื่อ: ${name}\nอีเมล: ${email}\nข้อความ: ${message}`,
       html: `
