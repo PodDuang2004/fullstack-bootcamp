@@ -27,6 +27,32 @@ section{
   max-width: 1000px;
   margin: 0 auto;
 }
+.logo a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  position: relative;
+  z-index: 10;
+}
+
+.logo-img {
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #ffffff; /* ขอบขาวตัดกับขอบเขียว */
+  outline: 2px solid #10b981;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+  
+  /* หัวใจสำคัญ: ทำให้ไม่กินพื้นที่ความสูงของแถบเมนู */
+  margin: -10px 0 -14px 0; 
+  
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.logo-img:hover {
+  transform: scale(1.1) translateY(2px);
+}
 
 .section-header {
   text-align: center;
