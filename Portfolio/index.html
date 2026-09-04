@@ -167,65 +167,128 @@
     </section> -->
     <!--Projects-->
 <section id="projects" class="projects-section">
-  <h2 class="section-title">โปรเจกต์ที่กำลังพัฒนาและผลงาน</h2>
-  
-  <div class="projects-container">
-    <!-- Project 1 -->
-    <div class="project-card">
-      <div class="project-header">
-        <span class="project-category">AI / Data Project</span>
-        <h3 class="project-title">ระบบแชทบอทให้คำปรึกษาด้านการวางแผนภาษีเงินได้บุคคลธรรมดา</h3>
-      </div>
-      <p class="project-desc">
-        ผู้ช่วยวิเคราะห์และวางแผนการลดหย่อนภาษี พร้อมช่วยให้ผู้ใช้งานสามารถกรอกเอกสารภาษีได้อย่างถูกต้องและรวดเร็ว โดยใช้เทคโนโลยี LLM, Knowledge Graph และ OpenCV & OCR
-      </p>
-      <div class="tech-stack">
-        <span class="tech-tag">Python</span>
-        <span class="tech-tag">LLM</span>
-        <span class="tech-tag">Knowledge Graph</span>
-        <span class="tech-tag">OpenCV & OCR</span>
-        <span class="tech-tag">LINE Messaging API</span>
-        <span class="tech-tag">REST API</span>
-      </div>
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">โปรเจกต์ที่กำลังพัฒนาและผลงาน</h2>
+      <p class="section-subtitle">ผลงานด้าน Data, AI และ Full-Stack Development ที่ผ่านมา</p>
     </div>
+    
+    <div class="projects-grid">
+      <!-- Project 1 -->
+      <article class="project-card">
+        <div class="project-card-header">
+          <span class="project-category">AI / Data Project</span>
+          <h3 class="project-title">ระบบแชทบอทให้คำปรึกษาด้านการวางแผนภาษีเงินได้บุคคลธรรมดา</h3>
+        </div>
+        
+        <div class="project-card-body">
+          <ul class="project-features">
+            <li>
+              <strong>เครื่องมือและโมเดล:</strong>
+              Python, RAG Pipeline, Llama, Hugging Face, FAISS, Dialogflow ES, OpenCV, Tesseract OCR, Firebase, RESTful API
+            </li>
+            <li>
+              <strong>ระบบสืบค้นเชิงความหมาย (RAG):</strong>
+              วางสถาปัตยกรรมแปลงข้อความเป็นเวกเตอร์ด้วย Embedding Model ร่วมกับ FAISS ดึงข้อกฎหมายและประมวลรัษฎากรส่งต่อให้โมเดล Llama ตอบคำถามได้แม่นยำ ลดความคลาดเคลื่อนของข้อมูล
+            </li>
+            <li>
+              <strong>ประมวลผลภาษาธรรมชาติ (NLU):</strong>
+              จำแนก Intent และสกัด Entity ผ่าน Dialogflow ES เชื่อมต่อ LINE Messaging API รองรับการถาม-ตอบแบบ Multi-turn เพื่อเก็บข้อมูลรายได้และค่าลดหย่อนอย่างเป็นขั้นตอน
+            </li>
+            <li>
+              <strong>โมดูลคำนวณและสกัดข้อมูลจากภาพ (OCR):</strong>
+              เขียนตรรกะคำนวณภาษีเบื้องหลังด้วย Python และใช้ OpenCV ร่วมกับ Tesseract OCR ดึงข้อมูลจากเอกสารบริจาคอิเล็กทรอนิกส์ (E-Donation) โดยอัตโนมัติ
+            </li>
+            <li>
+              <strong>ฐานข้อมูลและออกรายงาน:</strong>
+              จัดเก็บประวัติและบริบทการสนทนาบน Google Firebase (NoSQL) พร้อมระบบสังเคราะห์รายงานภาษีเป็นไฟล์ PDF อัตโนมัติด้วย ReportLab
+            </li>
+          </ul>
+        </div>
 
-    <!-- Project 2 -->
-  <div class="project-card">
-    <div class="project-header">
-      <span class="project-category">Full-Stack Web Development</span>
-      <h3 class="project-title">Basketball Hub - แพลตฟอร์มจัดการและจองสนามบาสเกตบอล</h3>
-    </div>
-    <p class="project-desc">
-      ระบบบริหารจัดการและจองสนามบาสเกตบอลแบบครบวงจร พร้อมระบบตรวจสอบสถิติผู้เล่น ออกแบบ UI/UX ด้วย Figma และพัฒนา Full-Stack Application ที่มีระบบ Authentication ป้องกันการจองซ้ำซ้อน และจัดการฐานข้อมูลอย่างปลอดภัย
-    </p>
-    <div class="tech-stack">
-      <span class="tech-tag">React.js</span>
-      <span class="tech-tag">Node.js</span>
-      <span class="tech-tag">Express</span>
-      <span class="tech-tag">RESTful API</span>
-      <span class="tech-tag">MySQL / MongoDB</span>
-      <span class="tech-tag">Figma</span>
-      <span class="tech-tag">Git / GitHub</span>
-    </div>
-  </div>
-</div>
-    
-    
-    <div class="project-card">
-      <div class="project-header">
-        <span class="project-category">Web Development</span>
-        <h3 class="project-title">เว็บไซต์ Portfolio สำหรับแนะนำตัวและแสดงผลงาน</h3>
-      </div>
-      <p class="project-desc">
-        ออกแบบและพัฒนาเว็บพอร์ตโฟลิโอส่วนตัวแบบ Responsive เพื่อนำเสนอทักษะและโปรเจกต์
-      </p>
-      <div class="tech-stack">
-        <span class="tech-tag">HTML5</span>
-        <span class="tech-tag">CSS3</span>
-        <span class="tech-tag">JavaScript</span>
-        <span class="tech-tag">React</span>
-        <span class="tech-tag">Git / GitHub</span>
-      </div>
+        <div class="project-card-footer">
+          <div class="tech-stack">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">LLM / RAG</span>
+            <span class="tech-tag">FAISS</span>
+            <span class="tech-tag">OpenCV & OCR</span>
+            <span class="tech-tag">Firebase</span>
+            <span class="tech-tag">LINE API</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 2 -->
+      <article class="project-card">
+        <div class="project-card-header">
+          <span class="project-category">Full-Stack Web Development</span>
+          <h3 class="project-title">Basketball Hub - แพลตฟอร์มจัดการและจองสนามบาสเกตบอล</h3>
+        </div>
+
+        <div class="project-card-body">
+          <p class="project-summary">
+            แพลตฟอร์มบริหารจัดการและจองสนามบาสเกตบอลแบบครบวงจร พร้อมระบบตรวจสอบสถิติผู้เล่น ออกแบบ UI/UX บน Figma และพัฒนาแอปพลิเคชันแบบ Full-Stack ที่ปลอดภัยและมีระบบป้องกันการจองซ้ำ
+          </p>
+          <ul class="project-features">
+            <li>
+              <strong>สถาปัตยกรรมระบบ & UI/UX:</strong>
+              ออกแบบ Flow การทำงานแบบ End-to-End และทำ Prototype บน Figma ครอบคลุมการจองสนาม สถิติผู้เล่น และตารางการใช้งาน
+            </li>
+            <li>
+              <strong>พัฒนา Frontend:</strong>
+              สร้างหน้าเว็บด้วย React.js แบบ Reusable Components (เช่น CourtCard, BookingForm, Scoreboard) จัดการ State ภายในระบบให้ตอบสนองลื่นไหล
+            </li>
+            <li>
+              <strong>พัฒนา Backend & API:</strong>
+              พัฒนา RESTful API ด้วย Node.js / Express เพื่อจัดการ Business Logic, ตรวจสอบสิทธิ์เข้าใช้งาน (Authentication) และป้องกันการจองสนามซ้ำซ้อนในเวลาเดียวกัน
+            </li>
+            <li>
+              <strong>จัดการฐานข้อมูล:</strong>
+              ออกแบบ Schema สำหรับจัดเก็บข้อมูลผู้ใช้ รายละเอียดสนาม และประวัติการทำรายการอย่างเป็นสัดส่วน
+            </li>
+            <li>
+              <strong>Version Control:</strong>
+              ติดตามและจัดการเวอร์ชันซอร์สโค้ดตามมาตรฐาน Git Workflow ผ่าน GitHub
+            </li>
+          </ul>
+        </div>
+
+        <div class="project-card-footer">
+          <div class="tech-stack">
+            <span class="tech-tag">React.js</span>
+            <span class="tech-tag">Node.js</span>
+            <span class="tech-tag">Express</span>
+            <span class="tech-tag">RESTful API</span>
+            <span class="tech-tag">MySQL / MongoDB</span>
+            <span class="tech-tag">Figma</span>
+            <span class="tech-tag">Git</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 3 -->
+      <article class="project-card">
+        <div class="project-card-header">
+          <span class="project-category">Web Development</span>
+          <h3 class="project-title">เว็บไซต์ Portfolio แนะนำตัวและแสดงผลงาน</h3>
+        </div>
+
+        <div class="project-card-body">
+          <p class="project-summary">
+            พัฒนาเว็บไซต์พอร์ตโฟลิโอส่วนบุคคลแบบ Responsive Web Design ที่ปรับขนาดการแสดงผลเข้ากับทุกหน้าจออย่างลื่นไหล เพื่อนำเสนอทักษะ โปรเจกต์ และเส้นทางการเรียนรู้ด้านสายงานคอมพิวเตอร์อย่างเป็นมืออาชีพ
+          </p>
+        </div>
+
+        <div class="project-card-footer">
+          <div class="tech-stack">
+            <span class="tech-tag">React</span>
+            <span class="tech-tag">HTML5</span>
+            <span class="tech-tag">CSS3</span>
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">GitHub Pages</span>
+          </div>
+        </div>
+      </article>
     </div>
   </div>
 </section>

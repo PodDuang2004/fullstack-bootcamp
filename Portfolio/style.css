@@ -229,78 +229,144 @@ section{
         flex-direction: column;
     }
 }
+/* =========================================================
+   PROJECTS SECTION (ปรับจูนให้เข้ากับโทนเขียว-เทาโมเดิร์นของเว็บ)
+   ========================================================= */
+
 .projects-section {
-  padding: 40px 20px;
-  max-width: 1100px;
-  margin: 0 auto;
+  padding: 60px 20px;
+  background-color: #f8fafc;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #334155;
 }
 
-.section-title {
-  font-size: 1.8rem;
+.projects-section .section-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.projects-section .section-title {
+  font-size: 2rem;
   color: #0f172a;
-  margin-bottom: 28px;
-  border-left: 4px solid #10b981;
-  padding-left: 12px;
+  margin: 0 0 8px 0;
+  border-left: none; /* เอาขีดข้างออกเพื่อให้เข้ากับหัวข้อหลักตรงกลาง */
+  padding-left: 0;
 }
 
-/* ใช้ CSS Grid เพื่อให้การ์ดแบ่ง 2 คอลัมน์เท่ากันสวยงาม */
-.projects-container {
+.projects-section .section-subtitle {
+  font-size: 1rem;
+  color: #64748b;
+  margin: 0;
+}
+
+/* Grid Layout จัดการ์ด 2 คอลัมน์สมมาตร */
+.projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 24px;
+  align-items: stretch;
 }
 
-/* สไตล์ Card */
+/* Card สไตล์เดียวกับ About Card */
 .project-card {
   background: #ffffff;
   border: 1px solid #e2e8f0;
   border-radius: 14px;
   padding: 24px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
 .project-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-5px);
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
   border-color: #10b981;
 }
 
-/* หัวข้อและหมวดหมู่ */
+/* หัวข้อการ์ดและป้ายหมวดหมู่ */
+.project-card-header {
+  margin-bottom: 16px;
+}
+
 .project-category {
   display: inline-block;
   font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
-  color: #059669;
   letter-spacing: 0.5px;
-  margin-bottom: 6px;
+  color: #059669;
+  background-color: #ecfdf5;
+  padding: 4px 10px;
+  border-radius: 6px;
+  margin-bottom: 10px;
 }
 
 .project-title {
-  font-size: 1.15rem;
-  color: #1e293b;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #0f172a;
   line-height: 1.4;
-  margin: 0 0 10px 0;
+  margin: 0;
 }
 
-.project-desc {
-  font-size: 0.95rem;
-  color: #64748b;
-  line-height: 1.6;
+/* เนื้อหารายละเอียดภายใน */
+.project-card-body {
+  flex-grow: 1;
   margin-bottom: 20px;
 }
 
-/* Tags ของเทคโนโลยี */
+.project-summary {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: #475569;
+  margin-bottom: 14px;
+}
+
+.project-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.project-features li {
+  position: relative;
+  padding-left: 18px;
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: #475569;
+  margin-bottom: 10px;
+}
+
+/* จุด Bullet โทนเขียว Emerald */
+.project-features li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #10b981;
+}
+
+.project-features strong {
+  color: #1e293b;
+  font-weight: 600;
+}
+
+/* แถบเทคโนโลยีด้านล่างการ์ด */
+.project-card-footer {
+  border-top: 1px solid #f1f5f9;
+  padding-top: 16px;
+}
+
 .tech-stack {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-top: auto;
 }
 
 .tech-tag {
@@ -308,16 +374,31 @@ section{
   color: #334155;
   font-size: 0.8rem;
   font-weight: 600;
-  padding: 5px 12px;
+  padding: 4px 12px;
   border-radius: 20px;
   border: 1px solid #e2e8f0;
-  transition: background 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 .project-card:hover .tech-tag {
   background-color: #ecfdf5;
   border-color: #a7f3d0;
   color: #065f46;
+}
+
+/* Responsive ปรับสำหรับจอมือถือ */
+@media (max-width: 640px) {
+  .projects-section {
+    padding: 40px 15px;
+  }
+  
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .project-card {
+    padding: 20px;
+  }
 }
 
 /*.projects-container{
